@@ -59,13 +59,13 @@ scene.background = new THREE.Color(0x292929);
 
 //textures
 const materials = [
-  new THREE.MeshBasicMaterial({ map: loader.load('textures/phoneBack.png') }),
-  new THREE.MeshBasicMaterial({ map: loader.load('textures/phoneBottom.png') }),
   new THREE.MeshBasicMaterial({ map: loader.load('textures/phoneSide.png') }),
-  new THREE.MeshBasicMaterial({ map: loader.load('textures/phoneTop.png') }),
-  new THREE.MeshBasicMaterial({ map: loader.load('textures/phoneSideB.png') }),
   new THREE.MeshBasicMaterial({ map: loader.load('textures/player1.png') }),
-  new THREE.MeshBasicMaterial({ map: loader.load('textures/player2.png') }),
+  new THREE.MeshBasicMaterial({ map: loader.load('textures/phoneTop.png') }),
+  new THREE.MeshBasicMaterial({ map: loader.load('textures/phoneBack.png') }),
+  new THREE.MeshBasicMaterial({ map: loader.load('textures/player1.png') }),
+  new THREE.MeshBasicMaterial({ map: loader.load('textures/phoneBack.png') }),
+  new THREE.MeshBasicMaterial({ map: loader.load('textures/phoneBack.png') }),
 ];
 
 //verlichting
@@ -90,7 +90,7 @@ const camera = new THREE.OrthographicCamera(
   0, // near plane
   1000, // far plane
 );
-camera.position.set(200, 200, 200);
+camera.position.set(0, 10, 10);
 camera.lookAt(0, 10, 0);
 
 // Set up renderer
@@ -100,34 +100,20 @@ renderer.render(scene, camera);
 
 document.body.appendChild(renderer.domElement);
 
-function createPhone() {
-  loadManager.onLoad = () => {
-    const geometry = new THREE.BoxBufferGeometry(14, 28, 2);
-    const phone = new THREE.Mesh(geometry, materials);
-    phone.position.x = 0;
-    phone.position.y = 0;
-    scene.add(phone);
-  };
-}
-createPhone();
+loadManager.onLoad = () => {
+  const geometry = new THREE.BoxBufferGeometry(14, 28, 2);
+  const phone = new THREE.Mesh(geometry, materials);
+  phone.position.x = 0;
+  phone.position.y = 0;
 
-//rig
-const options = { frequency: 60, referenceFrame: 'device' };
-const sensor = new AbsoluteOrientationSensor(options);
-
-sensor.addEventListener('reading', () => {
-  // model is a Three.js object instantiated elsewhere.
-  phone.quaternion.fromArray(sensor.quaternion).inverse();
-});
-sensor.addEventListener('error', (error) => {
-  if (event.error.name == 'NotReadableError') {
-    console.log('Sensor is not available.');
-  }
-});
-sensor.start();
-
-renderer.render(scene, camera);
-
-setTimeout(function () {
+  scene.add(phone);
   renderer.render(scene, camera);
-}, 1000);
+
+  //functie voor gyroSync
+  gyroscope.addEventListener('reading', (e) => {
+    phone.rotateX(gyroscope.x / 64);
+    phone.rotateY(gyroscope.y / 64);
+    phone.rotateZ(gyroscope.z / 64);
+    renderer.render(scene, camera);
+  });
+};
