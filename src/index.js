@@ -53,11 +53,23 @@ gyroscope.start();
 //3js
 
 const scene = new THREE.Scene();
-const loader = new THREE.TextureLoader();
-scene.background = new THREE.Color(0xffffff);
+const loadManager = new THREE.LoadingManager();
+const loader = new THREE.TextureLoader(loadManager);
+scene.background = new THREE.Color(0x292929);
+
+//textures
+const materials = [
+  new THREE.MeshBasicMaterial({ map: loader.load('textures/phoneBack.png') }),
+  new THREE.MeshBasicMaterial({ map: loader.load('textures/phoneBottom.png') }),
+  new THREE.MeshBasicMaterial({ map: loader.load('textures/phoneSide.png') }),
+  new THREE.MeshBasicMaterial({ map: loader.load('textures/phoneTop.png') }),
+  new THREE.MeshBasicMaterial({ map: loader.load('textures/phoneSideB.png') }),
+  new THREE.MeshBasicMaterial({ map: loader.load('textures/player1.png') }),
+  new THREE.MeshBasicMaterial({ map: loader.load('textures/player2.png') }),
+];
 
 //verlichting
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+const ambientLight = new THREE.AmbientLight(0xffffff, 1);
 scene.add(ambientLight);
 
 const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
@@ -89,16 +101,33 @@ renderer.render(scene, camera);
 document.body.appendChild(renderer.domElement);
 
 function createPhone() {
-  const geometry = new THREE.BoxBufferGeometry(14, 28, 2);
-  const material = new THREE.MeshLambertMaterial({
-    color: 0xffbe0b,
-    map: loader.load('textures/cover.jpg'),
-  });
-  const phone = new THREE.Mesh(geometry, material);
-  phone.position.x = 0;
-  phone.position.y = 0;
-  scene.add(phone);
+  loadManager.onLoad = () => {
+    const geometry = new THREE.BoxBufferGeometry(14, 28, 2);
+    const phone = new THREE.Mesh(geometry, materials);
+    phone.position.x = 0;
+    phone.position.y = 0;
+    scene.add(phone);
+  };
 }
 createPhone();
 
+//rig
+const options = { frequency: 60, referenceFrame: 'device' };
+const sensor = new AbsoluteOrientationSensor(options);
+
+sensor.addEventListener('reading', () => {
+  // model is a Three.js object instantiated elsewhere.
+  phone.quaternion.fromArray(sensor.quaternion).inverse();
+});
+sensor.addEventListener('error', (error) => {
+  if (event.error.name == 'NotReadableError') {
+    console.log('Sensor is not available.');
+  }
+});
+sensor.start();
+
 renderer.render(scene, camera);
+
+setTimeout(function () {
+  renderer.render(scene, camera);
+}, 1000);
