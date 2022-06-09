@@ -130,7 +130,6 @@ loadManager.onLoad = () => {
   });*/
 
   sensor.addEventListener('reading', () => {
-    // model is a Three.js object instantiated elsewhere.
-    phone.quaternion.fromArray(sensor.quaternion).invert();
+    phone.quaternion.copy( sensor.quaternion );
   });
 };
