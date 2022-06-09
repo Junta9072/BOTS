@@ -3,8 +3,7 @@ import * as THREE from 'three';
 function initSensor() {
   const options = { frequency: 60, referenceFrame: 'device'};
   console.log(JSON.stringify(options));
-  sensor = 
-relative ? new RelativeOrientationSensor(options) : 
+  sensor =  
       new AbsoluteOrientationSensor(options);
 
   sensor.onreading = 
