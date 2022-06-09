@@ -1,5 +1,20 @@
 import * as THREE from 'three';
 
+
+function initSensor() {
+  const options = { frequency: 60, referenceFrame: 'device'};
+  console.log(JSON.stringify(options));
+  const sensor =  
+      new AbsoluteOrientationSensor(options);
+
+  sensor.onerror = (event) => {
+    if (event.error.name == 'NotReadableError') {
+     console.log("Sensor is not available.");
+    }
+  }
+ sensor.start();
+}
+
 //remove gravity from acl
 let noGrav = { x: 0, y: 0, z: 0 };
 function noGravAcl() {
@@ -118,23 +133,9 @@ loadManager.onLoad = () => {
     renderer.render(scene, camera);
   });*/
 
-  function initSensor() {
-    const options = { frequency: 60, referenceFrame: 'device'};
-    console.log(JSON.stringify(options));
-    const sensor =  
-        new AbsoluteOrientationSensor(options);
-  
-    sensor.onreading = 
-  () => phone.quaternion.fromArray(sensor.quaternion).invert();
+  sensor.onreading = 
+  () => phone.quaternion.fromArray(sensor.quaternion);
   renderer.render(scene, camera);
-  
-    sensor.onerror = (event) => {
-      if (event.error.name == 'NotReadableError') {
-       console.log("Sensor is not available.");
-      }
-    }
-   sensor.start();
-  }
 
   initSensor();
 };
