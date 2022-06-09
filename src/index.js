@@ -1,5 +1,15 @@
 import * as THREE from 'three';
 
+const options = { frequency: 60, referenceFrame: 'device' };
+const sensor = new AbsoluteOrientationSensor(options);
+
+sensor.addEventListener('error', error => {
+  if (event.error.name == 'NotReadableError') {
+    console.log("Sensor is not available.");
+  }
+});
+
+
 //remove gravity from acl
 let noGrav = { x: 0, y: 0, z: 0 };
 function noGravAcl() {
@@ -49,6 +59,7 @@ gravitySensor.addEventListener('reading', (e) => {
 gravitySensor.start();
 acl.start();
 gyroscope.start();
+sensor.start();
 
 //3js
 
@@ -109,11 +120,17 @@ loadManager.onLoad = () => {
   scene.add(phone);
   renderer.render(scene, camera);
 
-  //functie voor gyroSync
+  
+  /*//functie voor gyroSync
   gyroscope.addEventListener('reading', (e) => {
     phone.rotateX(gyroscope.x / 64);
     phone.rotateY(gyroscope.y / 64);
     phone.rotateZ(gyroscope.z / 64);
     renderer.render(scene, camera);
+  });*/
+
+  sensor.addEventListener('reading', () => {
+    // model is a Three.js object instantiated elsewhere.
+    phone.quaternion.fromArray(sensor.quaternion).invert();
   });
 };
