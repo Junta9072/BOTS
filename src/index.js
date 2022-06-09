@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 
 
-function initSensor() {
+
   const options = { frequency: 60, referenceFrame: 'device'};
   console.log(JSON.stringify(options));
   const sensor =  
@@ -13,7 +13,6 @@ function initSensor() {
     }
   }
  sensor.start();
-}
 
 //remove gravity from acl
 let noGrav = { x: 0, y: 0, z: 0 };
@@ -136,6 +135,4 @@ loadManager.onLoad = () => {
   sensor.onreading = 
   () => phone.quaternion.fromArray(sensor.quaternion);
   renderer.render(scene, camera);
-
-  initSensor();
 };
