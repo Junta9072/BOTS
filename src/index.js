@@ -127,6 +127,7 @@ relative ? new RelativeOrientationSensor(options) :
 
     sensor.onreading = 
 () => model.quaternion.fromArray(sensor.quaternion).inverse();
+renderer.render(scene, camera);
 
     sensor.onerror = (event) => {
       if (event.error.name == 'NotReadableError') {
