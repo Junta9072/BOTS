@@ -130,9 +130,7 @@ loadManager.onLoad = () => {
   });*/
 
   sensor.addEventListener('reading', () => {
-    phone.quaternion.copy( sensor.quaternion );
-    console.log(phone.quaternion);
-    phone.updateMatrix();
+    phone.quaternion = sensor.quaternion;
     renderer.render(scene, camera);
   });
 };
