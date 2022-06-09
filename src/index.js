@@ -7,7 +7,7 @@ function initSensor() {
       new AbsoluteOrientationSensor(options);
 
   sensor.onreading = 
-() => model.quaternion.fromArray(sensor.quaternion).inverse();
+() => phone.quaternion.fromArray(sensor.quaternion).inverse();
 renderer.render(scene, camera);
 
   sensor.onerror = (event) => {
