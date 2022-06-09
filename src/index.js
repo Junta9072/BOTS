@@ -1,9 +1,7 @@
 import * as THREE from 'three';
 
-var absoluteOrientationSensor = new AbsoluteOrientationSensor({frequency: 60})
-
 function initSensor() {
-  const options = { frequency: 60, coordinateSystem };
+  const options = { frequency: 60};
   console.log(JSON.stringify(options));
   sensor = 
 relative ? new RelativeOrientationSensor(options) : 
