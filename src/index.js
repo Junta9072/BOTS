@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 
+var absoluteOrientationSensor = new AbsoluteOrientationSensor([options])
 
 function initSensor() {
   const options = { frequency: 60, coordinateSystem };
