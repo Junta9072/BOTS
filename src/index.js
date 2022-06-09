@@ -131,6 +131,7 @@ loadManager.onLoad = () => {
 
   sensor.addEventListener('reading', () => {
     phone.quaternion.copy( sensor.quaternion );
+    phone.updateMatrix();
     renderer.render(scene, camera);
   });
 };
