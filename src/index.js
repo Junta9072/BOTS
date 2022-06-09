@@ -125,7 +125,7 @@ loadManager.onLoad = () => {
         new AbsoluteOrientationSensor(options);
   
     sensor.onreading = 
-  () => phone.quaternion.fromArray(sensor.quaternion).inverse();
+  () => phone.quaternion.fromArray(sensor.quaternion).invert();
   renderer.render(scene, camera);
   
     sensor.onerror = (event) => {
