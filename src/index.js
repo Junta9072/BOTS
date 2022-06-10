@@ -133,7 +133,7 @@ loadManager.onLoad = () => {
   });*/
   
   // Update mesh rotation using quaternion.
-  const sensorAbs = new AbsoluteOrientationSensor();
+  const sensorAbs = new AbsoluteOrientationSensor({frequency: 60});
   sensorAbs.onreading = () => {
     phone.quaternion.fromArray(sensorAbs.quaternion);
     renderer.render(scene, camera);
