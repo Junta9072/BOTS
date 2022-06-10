@@ -135,6 +135,8 @@ loadManager.onLoad = () => {
   let torusGeometry = new THREE.TorusGeometry(7, 1.6, 4, 3, 6.3);
   let material = new THREE.MeshBasicMaterial({ color: 0x0071c5 });
   let torus = new THREE.Mesh(torusGeometry, material);
+  torus.position.x = 0;
+  torus.position.y = 0;
   scene.add(torus);
   
   // Update mesh rotation using quaternion.
