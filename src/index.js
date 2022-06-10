@@ -143,5 +143,6 @@ loadManager.onLoad = () => {
   const sensorAbs = new AbsoluteOrientationSensor();
   sensorAbs.onreading = () => torus.quaternion.fromArray(sensorAbs.quaternion);
   sensorAbs.start();
+  renderer.render(scene, camera);
   
 };
