@@ -109,7 +109,7 @@ camera.lookAt(0, 10, 0);
 
 // Set up renderer
 const renderer = new THREE.WebGLRenderer({ antialias: true });
-renderer.setSize(200, 200);
+renderer.setSize(500, 500);
 renderer.render(scene, camera);
 
 document.body.appendChild(renderer.domElement);
@@ -141,8 +141,10 @@ loadManager.onLoad = () => {
   
   // Update mesh rotation using quaternion.
   const sensorAbs = new AbsoluteOrientationSensor();
-  sensorAbs.onreading = () => torus.quaternion.fromArray(sensorAbs.quaternion);
+  sensorAbs.onreading = () => {
+    torus.quaternion.fromArray(sensorAbs.quaternion);
+    renderer.render(scene, camera);
+  }
   sensorAbs.start();
-  renderer.render(scene, camera);
   
 };
