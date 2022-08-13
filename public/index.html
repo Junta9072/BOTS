@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>10.nis</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/textures/favicon.svg" />
+    <link rel="stylesheet" href="reset_plus.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.137.0/build/three.module.js",
+          "socket.io-client": "https://cdn.socket.io/4.4.1/socket.io.esm.min.js"
+        }
+      }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.4.2/lib/p5.js"></script>
+    <script defer type="module" src="sketch.js"></script>
+    <script defer type="module" src="three.js"></script>
+    <script defer src="socket.js"></script>
+  </head>
+
+  <body>
+    <ul class="field">
+      <li class="sidefill2"></li>
+      <li class="sidefill"></li>
+      <li class="topnet" id="topnet"></li>
+      <li class="protagonist title">nis</li>
+      <li class="antagonist title">ten</li>
+      <li class="ten title">ten</li>
+      <li class="nis title">nis</li>
+      <li class="topfill"></li>
+      <li class="bottomfill"></li>
+      <li></li>
+      <li class="palette"></li>
+      <li class="cornerTL"></li>
+      <li class="cornerTR"></li>
+      <li class="leave"><button class="storageManager">LEAVE</button></li>
+      <li class="start"><button class="startGame">START</button></li>
+    </ul>
+    <ul class="game" id="game">
+      <div class="stadium" id="stadium"></div>
+
+      <!-- hierin canvas append doen -->
+    </ul>
+    <img src="textures/tennisballPICO.gif" alt="" class="canvasIMG" />
+  </body>
+</html>

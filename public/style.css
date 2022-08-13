@@ -1,0 +1,165 @@
+@font-face {
+  font-family: galgo;
+  src: url("textures/Galgo.otf");
+}
+
+:root {
+  --background: #568432;
+  --primary: #ffffff;
+  --secondary: black;
+  --error: #e63946;
+}
+
+body {
+  background-color: var(--background);
+  margin: 0vw;
+  font-family: galgo;
+}
+
+.canvasIMG {
+  display: none;
+}
+
+.title {
+  font-size: 40vw;
+}
+
+.field {
+  margin: 0vw;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  top: 20vw;
+  text-align: center;
+  background-color: var(--primary);
+  height: auto;
+  width: 86vw;
+
+  display: grid;
+  grid-template-columns: 13vw 25vw 25vw 13vw;
+  grid-template-rows: 15vw 40vw 40vw 15vw;
+  gap: 2vw;
+  padding: 2vw;
+  grid-auto-flow: row;
+  grid-template-areas:
+    ". . . ."
+    ". ten protagonist ."
+    ". antagonist nis ."
+    ". leave start .";
+}
+
+.field li {
+  background-color: var(--background);
+}
+
+.protagonist {
+  color: var(--secondary);
+  position: relative;
+  grid-area: protagonist;
+}
+
+.antagonist {
+  color: var(--secondary);
+  position: relative;
+  grid-area: antagonist;
+}
+
+.protagonist canvas,
+.antagonist canvas {
+  position: absolute;
+  top: 0vw;
+  left: 0vw;
+}
+
+.leave {
+  grid-area: leave;
+}
+
+.start {
+  grid-area: start;
+}
+
+.ten {
+  color: var(--primary);
+  grid-area: ten;
+}
+
+.nis {
+  color: var(--primary);
+  grid-area: nis;
+}
+
+.bottomfill {
+  grid-area: 4 / 2 / 5 / 4;
+}
+.topfill {
+  grid-area: 1 / 2 / 2 / 4;
+}
+.sidefill {
+  grid-area: 2 / 1 / 4 / 2;
+}
+.sidefill2 {
+  grid-area: 2 / 4 / 4 / 5;
+}
+
+.cornerTL {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.cornerTR {
+  grid-area: 1 / 4 / 2 / 5;
+}
+
+.topnet {
+  background-color: transparent;
+  grid-area: 1 / 1 / 3 / 5;
+  box-shadow: 2vw 0px 0px 0px var(--primary), -2vw 0px 0px 0px var(--primary),
+    -2vw 2vw 0px 0px var(--secondary), 2vw 2vw 0px 0px var(--secondary);
+}
+
+#topnet {
+  background-color: transparent;
+}
+
+.palette {
+  background-image: url("textures/palette.svg");
+  background-size: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+button {
+  margin-top: 1vh;
+  background-color: transparent;
+  border: none;
+  color: var(--secondary);
+  font-family: galgo;
+  font-size: 10vw;
+}
+
+.startGame {
+  color: var(--primary);
+}
+
+.game {
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+}
+
+.stadium {
+  position: relative;
+}
+
+#tennisCourt {
+  margin: 0vw;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  top: 20vw;
+  text-align: center;
+}
