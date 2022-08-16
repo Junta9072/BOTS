@@ -119,8 +119,12 @@ function draw() {
   );
   ellipse(position.x, position.y, r * 2, r * 2);
 
-  //move ellipse
-  position.add(velocity);
+  //deze achterhouden tot er opgeslagen wordt
+  function serve() {
+    served = true;
+    //move ellipse
+    position.add(velocity);
+  }
 
   //}
 
@@ -166,4 +170,4 @@ function draw() {
 window.setup = setup;
 window.draw = draw;
 
-export { swing };
+export { swing, serve };

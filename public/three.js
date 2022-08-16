@@ -1,4 +1,4 @@
-import { swing } from "./sketch.js";
+import { swing, serve } from "./sketch.js";
 import * as THREE from "three";
 import { GLTFLoader } from "https://threejs.org/examples/jsm/loaders/GLTFLoader.js";
 
@@ -9,6 +9,8 @@ document.querySelector(".storageManager").addEventListener("click", () => {
   sessionStorage.removeItem("10nis");
   socket.emit("obituary", socket.id);
 });
+
+let served = false;
 
 //css palette changer
 let colourCount = 0;
@@ -73,6 +75,11 @@ socket.on("connect", () => {
 });
 
 socket.on("swing", (msg) => {
+  if (swing == false) {
+    serve();
+    served = true;
+    //niet vergeten terug uit te zetten als een spel afloopt
+  }
   swing(msg);
 });
 
