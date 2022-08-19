@@ -84,7 +84,6 @@ io.on("connection", (socket) => {
   });
 
   socket.on("sensor", (msg) => {
-    console.log(msg.reading);
     io.emit("sensor", msg);
   });
 

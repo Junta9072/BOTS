@@ -2,6 +2,9 @@
 
 import { StaticCopyUsage } from "three";
 
+//variables related to serving the ball
+let served = false;
+
 // Variables related to moving ball
 let chaos = 0.5;
 let position;
@@ -16,7 +19,9 @@ let playerW = canvasW / 8;
 let playerH = canvasH / 8;
 //bepaald hoe snel een speler kan bewegen
 let stapCooldown = false;
-let stapGrootte = 0.4;
+let controleWaarde = 0.4;
+let stapGrootteProt = 0.4;
+let stapGrootteAnti = 0.4;
 
 let protPos = {
   x: canvasW / 2 - playerW / 2,
@@ -37,9 +42,9 @@ function protPosCalc() {
   stapCooldown = false;
   //}, 50);
   if (position.x >= protPos.x + protPos.width / 2) {
-    protPos.x = protPos.x + stapGrootte;
+    protPos.x = protPos.x + stapGrootteProt;
   } else {
-    protPos.x = protPos.x - stapGrootte;
+    protPos.x = protPos.x - stapGrootteProt;
   }
 }
 
@@ -49,9 +54,9 @@ function antiPosCalc() {
   stapCooldown = false;
   //}, 50);
   if (position.x >= antiPos.x + antiPos.width / 2) {
-    antiPos.x = antiPos.x + stapGrootte;
+    antiPos.x = antiPos.x + stapGrootteAnti;
   } else {
-    antiPos.x = antiPos.x - stapGrootte;
+    antiPos.x = antiPos.x - stapGrootteAnti;
   }
 }
 
@@ -65,22 +70,51 @@ function getColour(key) {
 }
 
 let swingCooldown = false;
-function swing(msg) {
+function swing(meOrYou) {
   if (swingCooldown == false) {
+    //stukje voor opslag
+    if (served == false) {
+      velocity = createVector(Math.random() / chaos, 2, 0);
+      position.add(velocity);
+      served = true;
+    }
+
     swingCooldown = true;
-    console.log("player " + msg.src + " has swung his racket");
+    //speed boost na slag
+    console.log(stapGrootteAnti);
+    switch (meOrYou) {
+      case 0:
+        stapGrootteProt = stapGrootteProt * 4;
+        setTimeout(() => {
+          stapGrootteProt = stapGrootteProt * 0;
+          stapGrootteProt = 0;
+          setTimeout(function () {
+            stapGrootteProt = controleWaarde;
+          }, 1000);
+        }, 1000);
+        break;
+      case 1:
+        stapGrootteAnti = stapGrootteAnti * 4;
+        setTimeout(() => {
+          stapGrootteAnti = stapGrootteAnti * 0;
+          stapGrootteAnti = 0;
+          setTimeout(function () {
+            stapGrootteAnti = controleWaarde;
+          }, 2000);
+        }, 1000);
+        break;
+
+      default:
+        break;
+    }
+
     setColour("--primary", "var(--error)");
     setTimeout(function () {
       setColour("--primary", "white");
       swingCooldown = false;
     }, 1000);
-  } else {
-    console.log("player " + msg.src + " is still on cooldown");
   }
 }
-
-//variables for player ball tracking
-let playerSpd = canvasW / 50;
 
 function setup() {
   //86 vw breed & 120 vw hoog
@@ -92,10 +126,11 @@ function setup() {
   fill(128);
 
   //start ellipse at middle top of screen
-  position = createVector(width / 2, 0);
+  //Deze veranderen voor de speler dat moet opslagen
+  position = createVector(protPos.x + playerW / 2, playerH + 10);
 
   //calculate initial random velocity
-  velocity = createVector(Math.random() / chaos, 1, 0);
+  velocity = createVector(/*Math.random() / chaos*/ 0, 0, 0);
   console.log(velocity);
   velocity.mult(speed);
 }
@@ -119,13 +154,8 @@ function draw() {
   );
   ellipse(position.x, position.y, r * 2, r * 2);
 
-  //deze achterhouden tot er opgeslagen wordt
-  function serve() {
-    served = true;
-    //move ellipse
-    position.add(velocity);
-  }
-
+  //move ellipse
+  position.add(velocity);
   //}
 
   // detect boundary collision
@@ -170,4 +200,4 @@ function draw() {
 window.setup = setup;
 window.draw = draw;
 
-export { swing, serve };
+export { swing };

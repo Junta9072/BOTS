@@ -1,4 +1,4 @@
-import { swing, serve } from "./sketch.js";
+import { swing } from "./sketch.js";
 import * as THREE from "three";
 import { GLTFLoader } from "https://threejs.org/examples/jsm/loaders/GLTFLoader.js";
 
@@ -80,7 +80,11 @@ socket.on("swing", (msg) => {
     served = true;
     //niet vergeten terug uit te zetten als een spel afloopt
   }
-  swing(msg);
+  if (msg.src == socket.id) {
+    swing(0);
+  } else {
+    swing(1);
+  }
 });
 
 //3js
