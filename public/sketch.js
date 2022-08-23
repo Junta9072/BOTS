@@ -1,6 +1,7 @@
 //CANVAS
 
 import { StaticCopyUsage } from "three";
+import { randomVector0, randomVector1, randomVector2 } from "./three.js";
 
 //variables related to serving the ball
 let served = false;
@@ -74,7 +75,7 @@ function swing(meOrYou) {
   if (swingCooldown == false) {
     //stukje voor opslag
     if (served == false) {
-      velocity = createVector(Math.random() / chaos, 2, 0);
+      velocity = createVector(randomVector0 / chaos, 2, 0);
       position.add(velocity);
       served = true;
     }
@@ -174,7 +175,7 @@ function draw() {
     position.y = r;
     velocity.y *= -1;
     console.log(velocity.x);
-    velocity.x = Math.random() / chaos - 0.5 / chaos;
+    velocity.x = randomVector1 / chaos - 0.5 / chaos;
   }
 
   // top
@@ -182,7 +183,7 @@ function draw() {
     position.y = height - r;
     velocity.y *= -1;
     console.log(velocity.x);
-    velocity.x = Math.random() / chaos - 0.5 / chaos;
+    velocity.x = randomVector2 / chaos - 0.5 / chaos;
   }
 
   if (stapCooldown == false) {
