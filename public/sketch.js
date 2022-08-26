@@ -1,7 +1,7 @@
 //CANVAS
 
 import { StaticCopyUsage } from "three";
-import { host, importedHost } from "./three.js";
+import { host } from "./three.js";
 //imported host: 1 = position , 2 = velocity , 3 = protpos , 4 = antipos
 
 //variables related to serving the ball
@@ -130,6 +130,7 @@ function setup() {
   //start ellipse at middle top of screen
   //Deze veranderen voor de speler dat moet opslagen
   position = createVector(protPos.x + playerW / 2, playerH + 10);
+  console.log(position);
 
   //calculate initial random velocity
   velocity = createVector(/*Math.random() / chaos*/ 0, 0, 0);
@@ -199,38 +200,13 @@ function draw() {
     fill("red");
     rect(antiPos.x, antiPos.y, antiPos.width, antiPos.height);
   } else {
-    ctx.drawImage(
-      document.querySelector(".canvasIMG"),
-      importedHost[0].x - r,
-      importedHost[0].y - r,
-      r * 2,
-      r * 2
-    );
-    ellipse(importedHost[0].x, importedHost[0].y, r * 2, r * 2);
-
-    //move ellipse
-    position.add(importedVelocity);
-    //}
-
-    fill("#ffffff");
-    rect(
-      importedHost[2].x,
-      importedHost[2].y,
-      importedHost[2].width,
-      importedHost[2].height
-    );
-
-    fill("red");
-    rect(
-      importedHost[3].x,
-      importedHost[3].y,
-      importedHost[3].width,
-      importedHost[3].height
-    );
+    //hier niet hostend canvas script
   }
+  console.log(position);
+  //deze position moet dus richting thee.js en dan naar de niet host gepasseerd worden
 }
 
 window.setup = setup;
 window.draw = draw;
 
-export { swing, position, velocity, protPos, antiPos };
+export { swing };

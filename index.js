@@ -29,17 +29,8 @@ io.on("connection", (socket) => {
   //als er geen opgeslagen rol is, geef dan de laagste rol zonder (offline) gebruiker en zet die op actief
 
   socket.on("host", (msg) => {
-    let importedPosition = msg[1];
-    let importedVelocity = msg[2];
-    let importProtPos = msg[3];
-    let importAntiPos = msg[4];
-
-    let importDetails = [
-      importedPosition,
-      importedVelocity,
-      importProtPos,
-      importAntiPos,
-    ];
+    let importDetails = msg;
+    console.log(importDetails);
     socket.emit("noHost", importDetails);
   });
 

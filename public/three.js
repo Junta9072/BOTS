@@ -1,4 +1,4 @@
-import { swing, position, velocity, protPos, antiPos } from "./sketch.js";
+import { swing } from "./sketch.js";
 import * as THREE from "three";
 import { GLTFLoader } from "https://threejs.org/examples/jsm/loaders/GLTFLoader.js";
 
@@ -10,9 +10,9 @@ document.querySelector(".storageManager").addEventListener("click", () => {
   socket.emit("obituary", socket.id);
 });
 
+//variabelen omtrent de status en inhoud van het spelcanvas
 let served = false;
 let host;
-let hostDetails = [position, velocity, protPos, antiPos];
 
 //css palette changer
 let colourCount = 0;
@@ -21,6 +21,7 @@ function setColour(key, value) {
   root.style.setProperty(key, value);
 }
 
+//functie om kleuren van het speelveld te veranderen
 document.querySelector(".palette").addEventListener("click", () => {
   if (colourCount > 3) {
     colourCount = 0;
@@ -56,14 +57,14 @@ document.querySelector(".palette").addEventListener("click", () => {
   colourCount++;
 });
 
-//swing detection
+//functie dat triggerd als het canvas in sketch.js geladen is
+
+//variabele dat verstuurd wordt als er een swing wordt gedetecteerd
 let swingData = {
   src: sessionStorage.getItem("10nis"),
   heading: "",
   magnitude: "",
 };
-
-console.log(document.querySelector(".p5Canvas"));
 
 //socket Onboarding
 socket.on("connect", () => {
@@ -76,18 +77,21 @@ socket.on("connect", () => {
   socket.on(socket.id, (msg) => {
     sessionStorage.setItem("10nis", msg.storage);
     alert(msg.info);
-    if (msg.storage == 0) {
-      host = true;
-      socket.emit("host", hostDetails);
-    } else {
-      host = false;
-      socket.on("noHost", (msg) => {
-        let importedHost = msg;
-      });
-    }
   });
 });
 
+//beslissen of het een gast of een eigenaar is
+if (sessionStorage.getItem("10nis") == 0) {
+  console.log("hosting canvas");
+  host = true;
+} else {
+  host = false;
+  socket.on("noHost", (msg) => {
+    importedHost = msg;
+  });
+}
+
+//swing detectie van andere spelers ontvangen
 socket.on("swing", (msg) => {
   if (swing == false) {
     serve();
@@ -275,4 +279,4 @@ scene.add( cube );*/
   animate();
 }
 antagonist();
-export { swing, host, importedHost };
+export { swing, host };
