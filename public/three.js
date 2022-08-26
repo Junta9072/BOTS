@@ -1,4 +1,4 @@
-import { swing } from "./sketch.js";
+import { swing, position, velocity, protPos, antiPos } from "./sketch.js";
 import * as THREE from "three";
 import { GLTFLoader } from "https://threejs.org/examples/jsm/loaders/GLTFLoader.js";
 
@@ -11,10 +11,8 @@ document.querySelector(".storageManager").addEventListener("click", () => {
 });
 
 let served = false;
-
-let randomVector0;
-let randomVector1;
-let randomVector2;
+let host;
+let hostDetails = [position, velocity, protPos, antiPos];
 
 //css palette changer
 let colourCount = 0;
@@ -65,12 +63,6 @@ let swingData = {
   magnitude: "",
 };
 
-function hostCanvas() {
-  setInterval(function () {
-    //socket.emit("canvas", document.querySelector("#tennisCourt").innerHTML);
-  }, 10);
-}
-
 console.log(document.querySelector(".p5Canvas"));
 
 //socket Onboarding
@@ -80,19 +72,20 @@ socket.on("connect", () => {
     src: socket.id,
     storage: sessionStorage.getItem("10nis"),
   });
+
   socket.on(socket.id, (msg) => {
     sessionStorage.setItem("10nis", msg.storage);
     alert(msg.info);
     if (msg.storage == 0) {
-      hostCanvas();
+      host = true;
+      socket.emit("host", hostDetails);
+    } else {
+      host = false;
+      socket.on("noHost", (msg) => {
+        let importedHost = msg;
+      });
     }
   });
-});
-
-socket.on("random", (msg) => {
-  randomVector0 = msg[0];
-  randomVector1 = msg[1];
-  randomVector2 = msg[2];
 });
 
 socket.on("swing", (msg) => {
@@ -282,4 +275,4 @@ scene.add( cube );*/
   animate();
 }
 antagonist();
-export { swing, randomVector0, randomVector1, randomVector2 };
+export { swing, host, importedHost };

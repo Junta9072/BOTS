@@ -1,7 +1,8 @@
 //CANVAS
 
 import { StaticCopyUsage } from "three";
-import { randomVector0, randomVector1, randomVector2 } from "./three.js";
+import { host, importedHost } from "./three.js";
+//imported host: 1 = position , 2 = velocity , 3 = protpos , 4 = antipos
 
 //variables related to serving the ball
 let served = false;
@@ -75,7 +76,7 @@ function swing(meOrYou) {
   if (swingCooldown == false) {
     //stukje voor opslag
     if (served == false) {
-      velocity = createVector(randomVector0 / chaos, 2, 0);
+      velocity = createVector(Math.random() / chaos, 2, 0);
       position.add(velocity);
       served = true;
     }
@@ -146,59 +147,90 @@ function draw() {
 
   //draw ellipse
   noStroke();
-  ctx.drawImage(
-    document.querySelector(".canvasIMG"),
-    position.x - r,
-    position.y - r,
-    r * 2,
-    r * 2
-  );
-  ellipse(position.x, position.y, r * 2, r * 2);
+  if (host == true) {
+    ctx.drawImage(
+      document.querySelector(".canvasIMG"),
+      position.x - r,
+      position.y - r,
+      r * 2,
+      r * 2
+    );
+    ellipse(position.x, position.y, r * 2, r * 2);
 
-  //move ellipse
-  position.add(velocity);
-  //}
+    //move ellipse
+    position.add(velocity);
+    //}
 
-  // detect boundary collision
-  // right
-  if (position.x > width - r) {
-    position.x = width - r;
-    velocity.x *= -1;
+    // detect boundary collision
+    // right
+    if (position.x > width - r) {
+      position.x = width - r;
+      velocity.x *= -1;
+    }
+    // left
+    if (position.x < r) {
+      position.x = r;
+      velocity.x *= -1;
+    }
+    // top
+    if (position.y < r) {
+      position.y = r;
+      velocity.y *= -1;
+      console.log(velocity.x);
+      velocity.x = Math.random() / chaos - 0.5 / chaos;
+    }
+
+    // top
+    if (position.y > height - r) {
+      position.y = height - r;
+      velocity.y *= -1;
+      console.log(velocity.x);
+      velocity.x = Math.random() / chaos - 0.5 / chaos;
+    }
+
+    if (stapCooldown == false) {
+      protPosCalc();
+      antiPosCalc();
+    }
+
+    fill("#ffffff");
+    rect(protPos.x, protPos.y, protPos.width, protPos.height);
+
+    fill("red");
+    rect(antiPos.x, antiPos.y, antiPos.width, antiPos.height);
+  } else {
+    ctx.drawImage(
+      document.querySelector(".canvasIMG"),
+      importedHost[0].x - r,
+      importedHost[0].y - r,
+      r * 2,
+      r * 2
+    );
+    ellipse(importedHost[0].x, importedHost[0].y, r * 2, r * 2);
+
+    //move ellipse
+    position.add(importedVelocity);
+    //}
+
+    fill("#ffffff");
+    rect(
+      importedHost[2].x,
+      importedHost[2].y,
+      importedHost[2].width,
+      importedHost[2].height
+    );
+
+    fill("red");
+    rect(
+      importedHost[3].x,
+      importedHost[3].y,
+      importedHost[3].width,
+      importedHost[3].height
+    );
   }
-  // left
-  if (position.x < r) {
-    position.x = r;
-    velocity.x *= -1;
-  }
-  // top
-  if (position.y < r) {
-    position.y = r;
-    velocity.y *= -1;
-    console.log(velocity.x);
-    velocity.x = randomVector1 / chaos - 0.5 / chaos;
-  }
-
-  // top
-  if (position.y > height - r) {
-    position.y = height - r;
-    velocity.y *= -1;
-    console.log(velocity.x);
-    velocity.x = randomVector2 / chaos - 0.5 / chaos;
-  }
-
-  if (stapCooldown == false) {
-    protPosCalc();
-    antiPosCalc();
-  }
-
-  fill("#ffffff");
-  rect(protPos.x, protPos.y, protPos.width, protPos.height);
-
-  fill("red");
-  rect(antiPos.x, antiPos.y, antiPos.width, antiPos.height);
 }
 
 window.setup = setup;
 window.draw = draw;
 
-export { swing };
+export { swing, position, velocity, protPos, antiPos };

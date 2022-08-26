@@ -22,18 +22,26 @@ let connected = [
 
 const freeUserSlot = (element) => element.id === null;
 
-let randomArray;
-setInterval(function () {
-  randomArray = [Math.random(), Math.random(), Math.random()];
-}, 1000);
-
 let looking4;
 
 io.on("connection", (socket) => {
   console.log("incoming connection from " + socket.id);
   //als er geen opgeslagen rol is, geef dan de laagste rol zonder (offline) gebruiker en zet die op actief
 
-  socket.emit("random", randomArray);
+  socket.on("host", (msg) => {
+    let importedPosition = msg[1];
+    let importedVelocity = msg[2];
+    let importProtPos = msg[3];
+    let importAntiPos = msg[4];
+
+    let importDetails = [
+      importedPosition,
+      importedVelocity,
+      importProtPos,
+      importAntiPos,
+    ];
+    socket.emit("noHost", importDetails);
+  });
 
   socket.on("onboarding", (msg) => {
     if (!msg.storage) {
