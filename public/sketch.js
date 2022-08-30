@@ -3,6 +3,8 @@
 import { StaticCopyUsage } from "three";
 import { host, pullCanvas, canvasImports } from "./three.js";
 
+window.canvasImports = canvasImports;
+
 //variables related to serving the ball
 let served = false;
 
@@ -118,9 +120,8 @@ function swing(meOrYou) {
 }
 
 let canvasExports = [protPos, antiPos, position];
-let test = null;
 function putCanvas(msg) {
-  test = msg;
+  console.log(canvasImports);
 }
 
 function setup() {
@@ -204,38 +205,39 @@ function draw() {
     canvasExports[2] = position;
   } else {
     if (!canvasImports) {
+    } else {
+      console.log(canvasImports);
+      //hier niet hostend canvas script tekenen
+      //ball
+
+      console.log(canvasImports);
+      ctx.drawImage(
+        document.querySelector(".canvasIMG"),
+        canvasImports[2].x - r,
+        canvasImports[2].y - r,
+        r * 2,
+        r * 2
+      );
+      ellipse(canvasImports[2].x, canvasImports[2].y, r * 2, r * 2);
+
+      //protPos
+      fill("#ffffff");
+      rect(
+        canvasImports[0].x,
+        canvasImports[0].y,
+        canvasImports[0].width,
+        canvasImports[0].height
+      );
+
+      //antiPos
+      fill("red");
+      rect(
+        canvasImports[1].x,
+        canvasImports[1].y,
+        canvasImports[1].width,
+        canvasImports[1].height
+      );
     }
-    //hier niet hostend canvas script tekenen
-    //ball
-    /*
-    console.log(canvasImports);
-    ctx.drawImage(
-      document.querySelector(".canvasIMG"),
-      canvasImports[2].x - r,
-      canvasImports[2].y - r,
-      r * 2,
-      r * 2
-    );
-    ellipse(canvasImports[2].x, canvasImports[2].y, r * 2, r * 2);
-
-    //protPos
-    fill("#ffffff");
-    rect(
-      canvasImports[0].x,
-      canvasImports[0].y,
-      canvasImports[0].width,
-      canvasImports[0].height
-    );
-
-    //antiPos
-    fill("red");
-    rect(
-      canvasImports[1].x,
-      canvasImports[1].y,
-      canvasImports[1].width,
-      canvasImports[1].height
-    );
-    */
   }
 
   //playerposition, antiposition & ball position overzetten naar variables en dan exporteren
