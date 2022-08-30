@@ -1,8 +1,7 @@
 //CANVAS
 
 import { StaticCopyUsage } from "three";
-import { host } from "./three.js";
-//imported host: 1 = position , 2 = velocity , 3 = protpos , 4 = antipos
+import { host, pullCanvas, canvasImports } from "./three.js";
 
 //variables related to serving the ball
 let served = false;
@@ -83,7 +82,7 @@ function swing(meOrYou) {
 
     swingCooldown = true;
     //speed boost na slag
-    console.log(stapGrootteAnti);
+
     switch (meOrYou) {
       case 0:
         stapGrootteProt = stapGrootteProt * 4;
@@ -118,6 +117,12 @@ function swing(meOrYou) {
   }
 }
 
+let canvasExports = [protPos, antiPos, position];
+let test = null;
+function putCanvas(msg) {
+  test = msg;
+}
+
 function setup() {
   //86 vw breed & 120 vw hoog
 
@@ -130,11 +135,10 @@ function setup() {
   //start ellipse at middle top of screen
   //Deze veranderen voor de speler dat moet opslagen
   position = createVector(protPos.x + playerW / 2, playerH + 10);
-  console.log(position);
+  canvasExports[2] = position;
 
   //calculate initial random velocity
   velocity = createVector(/*Math.random() / chaos*/ 0, 0, 0);
-  console.log(velocity);
   velocity.mult(speed);
 }
 
@@ -177,7 +181,6 @@ function draw() {
     if (position.y < r) {
       position.y = r;
       velocity.y *= -1;
-      console.log(velocity.x);
       velocity.x = Math.random() / chaos - 0.5 / chaos;
     }
 
@@ -185,7 +188,6 @@ function draw() {
     if (position.y > height - r) {
       position.y = height - r;
       velocity.y *= -1;
-      console.log(velocity.x);
       velocity.x = Math.random() / chaos - 0.5 / chaos;
     }
 
@@ -199,14 +201,49 @@ function draw() {
 
     fill("red");
     rect(antiPos.x, antiPos.y, antiPos.width, antiPos.height);
+    canvasExports[2] = position;
   } else {
-    //hier niet hostend canvas script
+    if (!canvasImports) {
+    }
+    //hier niet hostend canvas script tekenen
+    //ball
+    /*
+    console.log(canvasImports);
+    ctx.drawImage(
+      document.querySelector(".canvasIMG"),
+      canvasImports[2].x - r,
+      canvasImports[2].y - r,
+      r * 2,
+      r * 2
+    );
+    ellipse(canvasImports[2].x, canvasImports[2].y, r * 2, r * 2);
+
+    //protPos
+    fill("#ffffff");
+    rect(
+      canvasImports[0].x,
+      canvasImports[0].y,
+      canvasImports[0].width,
+      canvasImports[0].height
+    );
+
+    //antiPos
+    fill("red");
+    rect(
+      canvasImports[1].x,
+      canvasImports[1].y,
+      canvasImports[1].width,
+      canvasImports[1].height
+    );
+    */
   }
-  console.log(position);
-  //deze position moet dus richting thee.js en dan naar de niet host gepasseerd worden
+
+  //playerposition, antiposition & ball position overzetten naar variables en dan exporteren
+  //console.log(canvasExports);
+  pullCanvas(canvasExports);
 }
 
 window.setup = setup;
 window.draw = draw;
 
-export { swing };
+export { swing, canvasExports, putCanvas };

@@ -1,4 +1,4 @@
-import { swing } from "./sketch.js";
+import { swing, canvasExports, putCanvas } from "./sketch.js";
 import * as THREE from "three";
 import { GLTFLoader } from "https://threejs.org/examples/jsm/loaders/GLTFLoader.js";
 
@@ -13,6 +13,7 @@ document.querySelector(".storageManager").addEventListener("click", () => {
 //variabelen omtrent de status en inhoud van het spelcanvas
 let served = false;
 let host;
+let canvasImports;
 
 //css palette changer
 let colourCount = 0;
@@ -78,6 +79,16 @@ socket.on("connect", () => {
     sessionStorage.setItem("10nis", msg.storage);
     alert(msg.info);
   });
+
+  socket.on("putCanvas", (msg) => {
+    if (msg.src == sessionStorage.getItem("10nis")) {
+      console.log("self");
+    } else {
+      canvasImports = msg.content;
+      putCanvas(msg.content);
+      console.log(msg);
+    }
+  });
 });
 
 //beslissen of het een gast of een eigenaar is
@@ -104,6 +115,14 @@ socket.on("swing", (msg) => {
     swing(1);
   }
 });
+
+function pullCanvas() {
+  socket.emit("pullCanvas", {
+    src: sessionStorage.getItem("10nis"),
+    content: canvasExports,
+  });
+  //tot hier nog correct
+}
 
 //3js
 //racket maker
@@ -279,4 +298,4 @@ scene.add( cube );*/
   animate();
 }
 antagonist();
-export { swing, host };
+export { swing, host, pullCanvas, canvasImports };

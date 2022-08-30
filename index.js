@@ -31,7 +31,12 @@ io.on("connection", (socket) => {
   socket.on("host", (msg) => {
     let importDetails = msg;
     console.log(importDetails);
-    socket.emit("noHost", importDetails);
+    io.emit("noHost", importDetails);
+  });
+
+  socket.on("pullCanvas", (msg) => {
+    io.emit("putCanvas", msg);
+    console.log(msg);
   });
 
   socket.on("onboarding", (msg) => {
