@@ -60,6 +60,42 @@ body {
   grid-area: protagonist;
 }
 
+.joinButton {
+  color: var(--primary);
+  font-family: galgo;
+  font-size: 10vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-top: 5vw;
+  width: 25vw;
+  height: 40vw;
+  z-index: 1;
+}
+
+.fadeInFadeOut {
+  animation: 4s ease-in-out both infinite fadeInFadeOutANI;
+}
+
+.delay {
+  animation-delay: 2s;
+}
+
+@keyframes fadeInFadeOutANI {
+  0% {
+    opacity: 1;
+  }
+  33% {
+    opacity: 0;
+  }
+  66% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .antagonist {
   color: var(--secondary);
   position: relative;

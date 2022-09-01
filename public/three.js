@@ -10,6 +10,16 @@ document.querySelector(".storageManager").addEventListener("click", () => {
   socket.emit("obituary", socket.id);
 });
 
+let joined = false;
+let joinButton = document.querySelector(".joinButton");
+joinButton.addEventListener("click", () => {
+  console.log("peepeepoopoo");
+  joinButton.classList.remove("fadeInFadeOut");
+  joinButton.style.display = "none";
+  document.querySelector(".delay").classList.remove("fadeInFadeOut");
+  joinPlayer();
+});
+
 //variabelen omtrent de status en inhoud van het spelcanvas
 let served = false;
 let host;
@@ -67,13 +77,18 @@ let swingData = {
   magnitude: "",
 };
 
-//socket Onboarding
-socket.on("connect", () => {
-  console.log("connecting with " + socket.id);
+function joinPlayer() {
   socket.emit("onboarding", {
     src: socket.id,
     storage: sessionStorage.getItem("10nis"),
   });
+  joined = true;
+}
+
+//socket Onboarding
+socket.on("connect", () => {
+  console.log("connecting with " + socket.id);
+  //deze achter een click event steken.
 
   socket.on(socket.id, (msg) => {
     sessionStorage.setItem("10nis", msg.storage);
@@ -164,6 +179,8 @@ scene.add( cube );*/
       model = gltf.scene;
       scene.add(model);
 
+      //deze lezing alleen laten doorgaan als de onclick doorgaat
+      //gyroscoop bronnen uit de spelerslijst halen als je niet meedoet
       const sensorAbs = new AbsoluteOrientationSensor({ frequency: 60 });
       sensorAbs.onreading = () => {
         //pass reading to server
@@ -174,7 +191,9 @@ scene.add( cube );*/
         });
 
         //pass reading to 3d model
-        model.quaternion.fromArray(sensorAbs.quaternion);
+        if (joined == true) {
+          model.quaternion.fromArray(sensorAbs.quaternion);
+        }
 
         renderer.render(scene, camera);
         renderer.domElement.id = "protagonistCanvas";
@@ -192,10 +211,11 @@ scene.add( cube );*/
           src: sessionStorage.getItem("10nis"),
           reading: { x: laSensor.x, y: laSensor.y, z: laSensor.z },
         });
-
-        model.position.x = laSensor.x / 8;
-        model.position.y = laSensor.y / 8;
-        model.position.z = laSensor.z / 8;
+        if (joined == true) {
+          model.position.x = laSensor.x / 8;
+          model.position.y = laSensor.y / 8;
+          model.position.z = laSensor.z / 8;
+        }
 
         renderer.render(scene, camera);
       });
