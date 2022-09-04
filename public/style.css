@@ -8,6 +8,9 @@
   --primary: #ffffff;
   --secondary: black;
   --error: #e63946;
+  --score: #2e38ed;
+  --canvasW: 86vw;
+  --canvasH: 120vw;
 }
 
 body {
@@ -16,8 +19,9 @@ body {
   font-family: galgo;
 }
 
-.canvasIMG {
+img {
   display: none;
+  background-size: contain;
 }
 
 .title {
@@ -144,6 +148,29 @@ body {
   grid-area: 1 / 1 / 2 / 2;
 }
 
+.scoreAnt,
+.scoreProt {
+  font-size: 60pt;
+}
+
+.hoera {
+  animation: 0.5s 1 ease-in both hoeraANI;
+}
+
+@keyframes hoeraANI {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.4);
+    color: var(--score);
+    animation-timing-function: ease-out;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 .cornerTR {
   grid-area: 1 / 4 / 2 / 5;
 }
@@ -197,5 +224,48 @@ button {
   left: 0;
   right: 0;
   top: 20vw;
+
   text-align: center;
+}
+
+@media screen and (min-width: 480px) {
+  :root {
+    --canvasW: 71;
+    --canvasH: 50;
+  }
+  .title {
+    font-size: 30vh;
+  }
+  button {
+    font-size: 7.5vh;
+  }
+  .joinButton {
+    padding-top: 3.75vh;
+    width: 18.75vh;
+    height: 30vh;
+    font-size: 7.5vh;
+  }
+  .topnet {
+    box-shadow: 1.5vh 0px 0px 0px var(--primary),
+      -1.5vh 0px 0px 0px var(--primary), -1.5vh 1.5vh 0px 0px var(--secondary),
+      1.5vh 1.5vh 0px 0px var(--secondary);
+  }
+  .field {
+    top: 3vh;
+    width: 64.5vh;
+    grid-template-columns: 9.75vh 18.75vh 18.75vh 9.75vh;
+    grid-template-rows: 11.25vh 30vh 30vh 11.25vh;
+    gap: 1.5vh;
+    padding: 1.5vh;
+  }
+  #tennisCourt {
+    margin: 0vw;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: 4.5vh;
+    text-align: center;
+  }
 }

@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100.28 161.22">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#radial-gradient-7);
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        fill: url(#radial-gradient-8);
+      }
+
+      .cls-4 {
+        fill: url(#radial-gradient-5);
+      }
+
+      .cls-5 {
+        fill: url(#radial-gradient-4);
+      }
+
+      .cls-6 {
+        fill: #c61a44;
+      }
+
+      .cls-7 {
+        fill: url(#radial-gradient-6);
+      }
+
+      .cls-8 {
+        fill: url(#radial-gradient);
+      }
+
+      .cls-9 {
+        fill: #e81840;
+      }
+
+      .cls-10 {
+        clip-path: url(#clippath);
+      }
+
+      .cls-11 {
+        fill: url(#radial-gradient-2);
+      }
+
+      .cls-12 {
+        fill: none;
+      }
+
+      .cls-13 {
+        fill: url(#radial-gradient-3);
+      }
+
+      .cls-14 {
+        fill: #f7f7f7;
+      }
+
+      .cls-15 {
+        fill: url(#radial-gradient-9);
+      }
+    </style>
+    <radialGradient id="radial-gradient" cx="260.43" cy="130.22" fx="245.01" fy="148.55" r="23.96" gradientTransform="translate(-248.03)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffddca"/>
+      <stop offset="1" stop-color="#ffc799"/>
+    </radialGradient>
+    <radialGradient id="radial-gradient-2" cx="302.13" cy="126.46" fx="287.06" fy="144.03" r="23.14" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-3" cx="288.12" cy="94.57" fx="288.12" fy="94.57" r="19.52" gradientTransform="translate(-93.14 -174.53) rotate(45)" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-4" cx="260.43" cy="93.01" fx="260.43" fy="93.01" r="15.81" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-5" cx="301.2" cy="58.47" fx="301.2" fy="58.47" r="21.92" gradientTransform="translate(-218.97 -87.94) rotate(17.65)" xlink:href="#radial-gradient"/>
+    <clipPath id="clippath">
+      <path class="cls-12" d="M70.27,58.86c-4.37-2.64-6.86-9.69-6.06-17.15,.5-4.65,2.16-8.87,4.67-11.89,2.37-2.85,5.21-4.25,7.99-3.95,1.03,.11,2.03,.45,2.96,1.02,4.37,2.64,6.86,9.69,6.06,17.15-1,9.38-6.69,16.48-12.66,15.84-1.03-.11-2.03-.45-2.96-1.02Z"/>
+    </clipPath>
+    <radialGradient id="radial-gradient-6" cx="329.76" cy="76.37" fx="342.44" fy="66.25" r="16.23" gradientTransform="translate(-266.43 124.78) rotate(-21.58)" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-7" cx="291.51" cy="18.6" fx="307.69" fy="4.83" r="21.24" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-8" cx="287.73" cy="77.94" fx="300.34" fy="95.87" r="21.92" gradientTransform="translate(-254.87 43.62) rotate(-10.78)" xlink:href="#radial-gradient"/>
+    <radialGradient id="radial-gradient-9" cx="329.93" cy="77.87" fx="317.65" fy="88.48" r="16.23" gradientTransform="translate(-263.31 5.47) rotate(-2.27)" xlink:href="#radial-gradient"/>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <path class="cls-9" d="M24.8,161.22v-6.2l-1.31-.65C16.2,150.72,8.16,148.82,0,148.82h0v12.4H24.8Z"/>
+    <path class="cls-8" d="M0,148.82l24.8-37.2H12.45c-6.88,0-12.45,5.58-12.45,12.45v24.75Z"/>
+    <path class="cls-11" d="M62.01,148.82v-44.71s-10.28,6.85-10.28,6.85c-5.72,3.81-7.27,11.55-3.45,17.27l13.73,20.6Z"/>
+    <path class="cls-13" d="M27.68,81.11h24.8v37.2h0c-13.69,0-24.8-11.11-24.8-24.8v-12.4h0Z" transform="translate(-58.76 57.55) rotate(-45)"/>
+    <path class="cls-5" d="M0,74.41H24.8v37.2h0C11.11,111.61,0,100.5,0,86.81v-12.4H0Z"/>
+    <path class="cls-9" d="M74.41,161.22v-6.2l-1.31-.65c-7.29-3.65-15.34-5.55-23.49-5.55h0v12.4h24.8Z"/>
+    <polygon class="cls-6" points="0 74.41 0 107.27 37.2 99.21 24.8 74.41 0 74.41"/>
+    <polygon class="cls-9" points="52.94 95.03 37.2 74.41 0 74.41 29.41 113.59 52.94 95.03"/>
+    <path class="cls-4" d="M51.93,33.6l8.59,54.79-16.1-20.12c-7.39-9.24-9.68-21.57-6.09-32.85l1.78-5.58,11.82,3.76Z"/>
+    <polygon class="cls-2" points="51.93 33.6 56.22 60.99 32.59 53.47 28.44 26.12 51.93 33.6"/>
+    <path class="cls-2" d="M69.65,87.32c-.48-.29-.78-.84-.72-1.43l2.6-25.94c.08-.82,.82-1.43,1.64-1.34,.83,.08,1.43,.82,1.34,1.64l-2.6,25.94c-.08,.82-.82,1.43-1.64,1.34-.23-.02-.44-.1-.63-.21Z"/>
+    <g class="cls-10">
+      <g>
+        <rect class="cls-12" x="92.92" y="32.49" width="6.2" height="6.2" transform="translate(15.93 99.4) rotate(-58.88)"/>
+        <rect class="cls-2" x="93.94" y="31.91" width="3.1" height="3.1" transform="translate(17.49 97.92) rotate(-58.88)"/>
+        <rect class="cls-2" x="95" y="36.17" width="3.1" height="3.1" transform="translate(14.36 100.88) rotate(-58.88)"/>
+      </g>
+      <g>
+        <rect class="cls-12" x="89.71" y="37.8" width="6.2" height="6.2" transform="translate(9.83 99.22) rotate(-58.88)"/>
+        <rect class="cls-2" x="90.74" y="37.22" width="3.1" height="3.1" transform="translate(11.4 97.74) rotate(-58.88)"/>
+        <rect class="cls-2" x="91.79" y="41.48" width="3.1" height="3.1" transform="translate(8.26 100.7) rotate(-58.88)"/>
+      </g>
+      <g>
+        <rect class="cls-12" x="86.51" y="43.11" width="6.2" height="6.2" transform="translate(3.74 99.04) rotate(-58.88)"/>
+        <rect class="cls-2" x="87.53" y="42.53" width="3.1" height="3.1" transform="translate(5.31 97.56) rotate(-58.88)"/>
+        <rect class="cls-2" x="88.59" y="46.79" width="3.1" height="3.1" transform="translate(2.17 100.52) rotate(-58.88)"/>
+      </g>
+      <g>
+        <rect class="cls-12" x="83.31" y="48.42" width="6.2" height="6.2" transform="translate(-2.35 98.86) rotate(-58.88)"/>
+        <rect class="cls-2" x="84.33" y="47.84" width="3.1" height="3.1" transform="translate(-.79 97.38) rotate(-58.88)"/>
+        <rect class="cls-2" x="85.38" y="52.09" width="3.1" height="3.1" transform="translate(-3.92 100.34) rotate(-58.88)"/>
+      </g>
+      <g>
+        <rect class="cls-12" x="80.1" y="53.72" width="6.2" height="6.2" transform="translate(-8.45 98.68) rotate(-58.88)"/>
+        <rect class="cls-2" x="81.12" y="53.15" width="3.1" height="3.1" transform="translate(-6.88 97.2) rotate(-58.88)"/>
+        <rect class="cls-2" x="82.18" y="57.4" width="3.1" height="3.1" transform="translate(-10.01 100.16) rotate(-58.88)"/>
+      </g>
+      <g>
+        <rect class="cls-12" x="76.9" y="59.03" width="6.2" height="6.2" transform="translate(-14.54 98.5) rotate(-58.88)"/>
+        <rect class="cls-2" x="77.92" y="58.45" width="3.1" height="3.1" transform="translate(-12.97 97.03) rotate(-58.88)"/>
+        <rect class="cls-2" x="78.97" y="62.71" width="3.1" height="3.1" transform="translate(-16.11 99.98) rotate(-58.88)"/>
+      </g>
+      <g>
+        <rect class="cls-12" x="87.61" y="29.29" width="6.2" height="6.2" transform="translate(16.1 93.31) rotate(-58.88)"/>
+        <rect class="cls-2" x="88.64" y="28.71" width="3.1" height="3.1" transform="translate(17.67 91.83) rotate(-58.88)"/>
+        <rect class="cls-2" x="89.69" y="32.96" width="3.1" height="3.1" transform="translate(14.54 94.78) rotate(-58.88)"/>
+      </g>
+      <g>
+        <rect class="cls-12" x="84.41" y="34.59" width="6.2" height="6.2" transform="translate(10.01 93.13) rotate(-58.88)"/>
+        <rect class="cls-2" x="85.43" y="34.02" width="3.1" height="3.1" transform="translate(11.58 91.65) rotate(-58.88)"/>
+        <rect class="cls-2" x="86.48" y="38.27" width="3.1" height="3.1" transform="translate(8.44 94.6) rotate(-58.88)"/>
+      </g>
+      <g>
+        <rect class="cls-12" x="81.2" y="39.9" width="6.2" height="6.2" transform="translate(3.92 92.95) rotate(-58.88)"/>
+        <rect class="cls-2" x="82.23" y="39.32" width="3.1" height="3.1" transform="translate(5.49 91.47) rotate(-58.88)"/>
+        <rect class="cls-2" x="83.28" y="43.58" width="3.1" height="3.1" transform="translate(2.35 94.43) rotate(-58.88)"/>
+      </g>
+      <g>
+        <rect class="cls-12" x="78" y="45.21" width="6.2" height="6.2" transform="translate(-2.17 92.77) rotate(-58.88)"/>
+        <rect class="cls-2" x="79.02" y="44.63" width="3.1" height="3.1" transform="translate(-.61 91.29) rotate(-58.88)"/>
+        <rect class="cls-2" x="80.07" y="48.89" width="3.1" height="3.1" transform="translate(-3.74 94.25) rotate(-58.88)"/>
+      </g>
+      <g>
+        <rect class="cls-12" x="74.79" y="50.52" width="6.2" height="6.2" transform="translate(-8.27 92.59) rotate(-58.88)"/>
+        <rect class="cls-2" x="75.82" y="49.94" width="3.1" height="3.1" transform="translate(-6.7 91.11) rotate(-58.88)"/>
+        <rect class="cls-2" x="76.87" y="54.2" width="3.1" height="3.1" transform="translate(-9.84 94.07) rotate(-58.88)"/>
+      </g>
+      <g>
+        <rect class="cls-12" x="71.59" y="55.83" width="6.2" height="6.2" transform="translate(-14.36 92.41) rotate(-58.88)"/>
+        <rect class="cls-2" x="72.61" y="55.25" width="3.1" height="3.1" transform="translate(-12.79 90.93) rotate(-58.88)"/>
+        <rect class="cls-2" x="73.66" y="59.51" width="3.1" height="3.1" transform="translate(-15.93 93.89) rotate(-58.88)"/>
+      </g>
+      <g>
+        <rect class="cls-12" x="82.3" y="26.08" width="6.2" height="6.2" transform="translate(16.28 87.21) rotate(-58.88)"/>
+        <rect class="cls-2" x="83.33" y="25.5" width="3.1" height="3.1" transform="translate(17.85 85.73) rotate(-58.88)"/>
+        <rect class="cls-2" x="84.38" y="29.76" width="3.1" height="3.1" transform="translate(14.72 88.69) rotate(-58.88)"/>
+      </g>
+      <g>
+        <rect class="cls-12" x="79.1" y="31.39" width="6.2" height="6.2" transform="translate(10.19 87.03) rotate(-58.88)"/>
+        <rect class="cls-2" x="80.12" y="30.81" width="3.1" height="3.1" transform="translate(11.76 85.55) rotate(-58.88)"/>
+        <rect class="cls-2" x="81.17" y="35.07" width="3.1" height="3.1" transform="translate(8.62 88.51) rotate(-58.88)"/>
+      </g>
+      <g>
+        <rect class="cls-12" x="75.89" y="36.7" width="6.2" height="6.2" transform="translate(4.1 86.85) rotate(-58.88)"/>
+        <rect class="cls-2" x="76.92" y="36.12" width="3.1" height="3.1" transform="translate(5.67 85.38) rotate(-58.88)"/>
+        <rect class="cls-2" x="77.97" y="40.38" width="3.1" height="3.1" transform="translate(2.53 88.33) rotate(-58.88)"/>
+      </g>
+      <g>
+        <rect class="cls-12" x="72.69" y="42.01" width="6.2" height="6.2" transform="translate(-2 86.68) rotate(-58.88)"/>
+        <rect class="cls-2" x="73.71" y="41.43" width="3.1" height="3.1" transform="translate(-.43 85.2) rotate(-58.88)"/>
+        <rect class="cls-2" x="74.76" y="45.68" width="3.1" height="3.1" transform="translate(-3.56 88.15) rotate(-58.88)"/>
+      </g>
+      <g>
+        <rect class="cls-12" x="69.48" y="47.31" width="6.2" height="6.2" transform="translate(-8.09 86.5) rotate(-58.88)"/>
+        <rect class="cls-2" x="70.51" y="46.74" width="3.1" height="3.1" transform="translate(-6.52 85.02) rotate(-58.88)"/>
+        <rect class="cls-2" x="71.56" y="50.99" width="3.1" height="3.1" transform="translate(-9.66 87.98) rotate(-58.88)"/>
+      </g>
+      <g>
+        <rect class="cls-12" x="66.28" y="52.62" width="6.2" height="6.2" transform="translate(-14.18 86.32) rotate(-58.88)"/>
+        <rect class="cls-2" x="67.3" y="52.04" width="3.1" height="3.1" transform="translate(-12.61 84.84) rotate(-58.88)"/>
+        <rect class="cls-2" x="68.36" y="56.3" width="3.1" height="3.1" transform="translate(-15.75 87.8) rotate(-58.88)"/>
+      </g>
+      <g>
+        <rect class="cls-12" x="76.99" y="22.88" width="6.2" height="6.2" transform="translate(16.46 81.12) rotate(-58.88)"/>
+        <rect class="cls-2" x="78.02" y="22.3" width="3.1" height="3.1" transform="translate(18.03 79.64) rotate(-58.88)"/>
+        <rect class="cls-2" x="79.07" y="26.55" width="3.1" height="3.1" transform="translate(14.89 82.6) rotate(-58.88)"/>
+      </g>
+      <g>
+        <rect class="cls-12" x="73.79" y="28.18" width="6.2" height="6.2" transform="translate(10.37 80.94) rotate(-58.88)"/>
+        <rect class="cls-2" x="74.81" y="27.61" width="3.1" height="3.1" transform="translate(11.94 79.46) rotate(-58.88)"/>
+        <rect class="cls-2" x="75.87" y="31.86" width="3.1" height="3.1" transform="translate(8.8 82.42) rotate(-58.88)"/>
+      </g>
+      <g>
+        <rect class="cls-12" x="70.58" y="33.49" width="6.2" height="6.2" transform="translate(4.28 80.76) rotate(-58.88)"/>
+        <rect class="cls-2" x="71.61" y="32.91" width="3.1" height="3.1" transform="translate(5.84 79.28) rotate(-58.88)"/>
+        <rect class="cls-2" x="72.66" y="37.17" width="3.1" height="3.1" transform="translate(2.71 82.24) rotate(-58.88)"/>
+      </g>
+      <g>
+        <rect class="cls-12" x="67.38" y="38.8" width="6.2" height="6.2" transform="translate(-1.82 80.58) rotate(-58.88)"/>
+        <rect class="cls-2" x="68.4" y="38.22" width="3.1" height="3.1" transform="translate(-.25 79.1) rotate(-58.88)"/>
+        <rect class="cls-2" x="69.46" y="42.48" width="3.1" height="3.1" transform="translate(-3.39 82.06) rotate(-58.88)"/>
+      </g>
+      <g>
+        <rect class="cls-12" x="64.18" y="44.11" width="6.2" height="6.2" transform="translate(-7.91 80.4) rotate(-58.88)"/>
+        <rect class="cls-2" x="65.2" y="43.53" width="3.1" height="3.1" transform="translate(-6.34 78.93) rotate(-58.88)"/>
+        <rect class="cls-2" x="66.25" y="47.79" width="3.1" height="3.1" transform="translate(-9.48 81.88) rotate(-58.88)"/>
+      </g>
+      <g>
+        <rect class="cls-12" x="60.97" y="49.42" width="6.2" height="6.2" transform="translate(-14 80.23) rotate(-58.88)"/>
+        <rect class="cls-2" x="61.99" y="48.84" width="3.1" height="3.1" transform="translate(-12.44 78.75) rotate(-58.88)"/>
+        <rect class="cls-2" x="63.05" y="53.1" width="3.1" height="3.1" transform="translate(-15.57 81.7) rotate(-58.88)"/>
+      </g>
+      <g>
+        <rect class="cls-12" x="71.69" y="19.67" width="6.2" height="6.2" transform="translate(16.64 75.03) rotate(-58.88)"/>
+        <rect class="cls-2" x="72.71" y="19.09" width="3.1" height="3.1" transform="translate(18.21 73.55) rotate(-58.88)"/>
+        <rect class="cls-2" x="73.76" y="23.35" width="3.1" height="3.1" transform="translate(15.07 76.5) rotate(-58.88)"/>
+      </g>
+      <g>
+        <rect class="cls-12" x="68.48" y="24.98" width="6.2" height="6.2" transform="translate(10.55 74.85) rotate(-58.88)"/>
+        <rect class="cls-2" x="69.51" y="24.4" width="3.1" height="3.1" transform="translate(12.12 73.37) rotate(-58.88)"/>
+        <rect class="cls-2" x="70.56" y="28.66" width="3.1" height="3.1" transform="translate(8.98 76.33) rotate(-58.88)"/>
+      </g>
+      <g>
+        <rect class="cls-12" x="65.28" y="30.29" width="6.2" height="6.2" transform="translate(4.45 74.67) rotate(-58.88)"/>
+        <rect class="cls-2" x="66.3" y="29.71" width="3.1" height="3.1" transform="translate(6.02 73.19) rotate(-58.88)"/>
+        <rect class="cls-2" x="67.35" y="33.97" width="3.1" height="3.1" transform="translate(2.89 76.15) rotate(-58.88)"/>
+      </g>
+      <g>
+        <rect class="cls-12" x="62.07" y="35.6" width="6.2" height="6.2" transform="translate(-1.64 74.49) rotate(-58.88)"/>
+        <rect class="cls-2" x="63.1" y="35.02" width="3.1" height="3.1" transform="translate(-.07 73.01) rotate(-58.88)"/>
+        <rect class="cls-2" x="64.15" y="39.27" width="3.1" height="3.1" transform="translate(-3.21 75.97) rotate(-58.88)"/>
+      </g>
+      <g>
+        <rect class="cls-12" x="58.87" y="40.9" width="6.2" height="6.2" transform="translate(-7.73 74.31) rotate(-58.88)"/>
+        <rect class="cls-2" x="59.89" y="40.33" width="3.1" height="3.1" transform="translate(-6.16 72.83) rotate(-58.88)"/>
+        <rect class="cls-2" x="60.94" y="44.58" width="3.1" height="3.1" transform="translate(-9.3 75.79) rotate(-58.88)"/>
+      </g>
+      <g>
+        <rect class="cls-12" x="55.66" y="46.21" width="6.2" height="6.2" transform="translate(-13.82 74.13) rotate(-58.88)"/>
+        <rect class="cls-2" x="56.69" y="45.64" width="3.1" height="3.1" transform="translate(-12.26 72.65) rotate(-58.88)"/>
+        <rect class="cls-2" x="57.74" y="49.89" width="3.1" height="3.1" transform="translate(-15.39 75.61) rotate(-58.88)"/>
+      </g>
+    </g>
+    <path class="cls-9" d="M80.61,25.6l-1.55,2.57c3.88,2.34,6.08,8.8,5.34,15.71-.47,4.36-2.01,8.3-4.34,11.09-1.18,1.42-3.62,3.75-6.68,3.42-.81-.09-1.6-.36-2.35-.81-3.88-2.34-6.08-8.8-5.34-15.71,.9-8.41,5.94-15.05,11.01-14.51,.81,.09,1.6,.36,2.35,.81l1.55-2.57m0,0c-1.1-.66-2.3-1.09-3.58-1.22-6.81-.73-13.22,6.96-14.31,17.17-.89,8.3,2,15.71,6.77,18.59,1.1,.66,2.3,1.09,3.58,1.22,6.81,.73,13.22-6.96,14.31-17.17,.89-8.3-2-15.72-6.77-18.59h0Z"/>
+    <path class="cls-7" d="M60.47,88.39l18.5-20.66h0c-2.1-5.3-9.03-6.54-12.84-2.29l-1.95,2.18c-5.07,5.66-6.51,13.7-3.71,20.77h0Z"/>
+    <path class="cls-14" d="M0,74.41L9.36,36.98c1.79-7.16,8.22-12.18,15.6-12.18h24.65v24.8h0l-12.4,24.8H0Z"/>
+    <path class="cls-1" d="M29.53,0h27.9V23.25c0,7.7-6.25,13.95-13.95,13.95h0c-7.7,0-13.95-6.25-13.95-13.95V0h0Z"/>
+    <path d="M29.53,0h27.9V10.59c-6.79-4.41-21.54-3.89-27.9,0V0Z"/>
+    <path class="cls-3" d="M23.79,36.62l33.65,44.09-23.74-10.03c-10.9-4.61-18.78-14.36-21-25.99l-1.1-5.75,12.18-2.32Z"/>
+    <path class="cls-15" d="M57.46,80.71l24.29-13.38h0c-.23-5.69-6.36-9.16-11.36-6.41l-2.56,1.41c-6.66,3.67-10.67,10.78-10.37,18.37h0Z"/>
+    <path class="cls-2" d="M34.92,51.2l-27.4-6.83,1.84-7.38c1.79-7.16,8.22-12.18,15.6-12.18h1.73l8.23,26.39Z"/>
+  </g>
+</svg>

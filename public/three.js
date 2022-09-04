@@ -11,6 +11,8 @@ document.querySelector(".storageManager").addEventListener("click", () => {
 });
 
 let joined = false;
+let primaryCanvasUser = undefined;
+let secondaryCanvasUser = undefined;
 let joinButton = document.querySelector(".joinButton");
 joinButton.addEventListener("click", () => {
   console.log("peepeepoopoo");
@@ -97,11 +99,10 @@ socket.on("connect", () => {
 
   socket.on("putCanvas", (msg) => {
     if (msg.src == sessionStorage.getItem("10nis")) {
-      console.log("self");
     } else {
       canvasImports = msg.content;
       putCanvas(msg.content);
-      console.log(msg);
+      //console.log(msg);
     }
   });
 });
@@ -185,14 +186,28 @@ scene.add( cube );*/
       sensorAbs.onreading = () => {
         //pass reading to server
         document.querySelector(".protagonist").style.color = "black";
-        socket.emit("sensor", {
-          src: sessionStorage.getItem("10nis"),
-          reading: sensorAbs.quaternion,
-        });
+        if (joined == true) {
+          socket.emit("sensor", {
+            src: sessionStorage.getItem("10nis"),
+            reading: sensorAbs.quaternion,
+          });
+        }
 
         //pass reading to 3d model
         if (joined == true) {
           model.quaternion.fromArray(sensorAbs.quaternion);
+          primaryCanvasUser = sessionStorage.getItem("10nis");
+        } else {
+          //hier nog meer code voor als de user niet mee doet aan een spel
+          socket.on("sensor", (msg) => {
+            let reading = msg.reading;
+            if (
+              msg.src !== sessionStorage.getItem("10nis") &&
+              msg.src !== secondaryCanvasUser
+            ) {
+              model.quaternion.fromArray(reading);
+            }
+          });
         }
 
         renderer.render(scene, camera);
@@ -203,18 +218,21 @@ scene.add( cube );*/
       //swingdetection
       let laSensor = new LinearAccelerationSensor({ frequency: 60 });
       laSensor.addEventListener("reading", (e) => {
-        if (laSensor.x > 20 || laSensor.y > 20 || laSensor.z > 20) {
-          console.log("SWING");
-          socket.emit("swing", swingData);
-        }
-        socket.emit("laSensor", {
-          src: sessionStorage.getItem("10nis"),
-          reading: { x: laSensor.x, y: laSensor.y, z: laSensor.z },
-        });
         if (joined == true) {
+          if (laSensor.x > 20 || laSensor.y > 20 || laSensor.z > 20) {
+            console.log("SWING");
+            socket.emit("swing", swingData);
+          }
+          socket.emit("laSensor", {
+            src: sessionStorage.getItem("10nis"),
+            reading: { x: laSensor.x, y: laSensor.y, z: laSensor.z },
+          });
+
           model.position.x = laSensor.x / 8;
           model.position.y = laSensor.y / 8;
           model.position.z = laSensor.z / 8;
+        } else {
+          //hier extra code om derde gebruiker in te schrijven
         }
 
         renderer.render(scene, camera);
@@ -278,8 +296,12 @@ scene.add( cube );*/
         if (msg.reading) {
           let reading = msg.reading;
           document.querySelector(".antagonist").style.color = "black";
-          if (msg.src !== sessionStorage.getItem("10nis")) {
+          if (
+            msg.src !== sessionStorage.getItem("10nis") &&
+            msg.src !== primaryCanvasUser
+          ) {
             model.quaternion.fromArray(reading);
+            secondaryCanvasUser = msg.src;
           }
         } else {
           console.log("bananabread");
